@@ -13,6 +13,7 @@
 </style>
 
 <form class="centralizar" action="{% url 'resultados' %}"method='POST'>
+    {% csrf_token %}
     <div>
         <h1>Pesquisar</h1>
         <input type="text" class="form-control-lg" name="produto" placeholder="Pesquisar produto">

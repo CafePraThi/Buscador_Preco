@@ -1,6 +1,34 @@
 {% extends 'produtos/index.html' %}
 {% block content %} 
+{% load humanize %}
 
+
+<form class="centralizar" action="{% url 'resultados' %}"method='POST'>
+    <div>
+        <h1>Pesquisar</h1>
+        <input type="text" class="form-control-lg" name="produto" placeholder="Pesquisar produto">
+
+        <input type="submit" class="form-control-lg" value="🔍">
+    </div>
+
+</form>
+
+<table class="table table-light table-strip">
+    <tr>
+        <th>Produto</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Site</th>
+        <th>Data Cotação</th>
+    </tr>
+    {% for dado in dados %}
+    <td>{{ dado.link_img }}  </td>
+    <td>{{ dado.name }}  </td>
+    <td>R${{ dado.price | intcomma}}  </td>
+    <td>{{ dado.site }}  </td>
+    <td>{{ dado.quote_date }}  </td>
+    {% endfor %}
+</table>
 
 
 {% endblock %}
