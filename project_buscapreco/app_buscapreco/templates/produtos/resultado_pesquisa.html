@@ -13,6 +13,8 @@
 
 </form>
 
+
+<div class="container">
 <table class="table table-light table-strip">
     <tr>
         <th>Produto</th>
@@ -22,13 +24,13 @@
         <th>Data Cotação</th>
     </tr>
     {% for dado in dados %}
-    <td>{{ dado.link_img }}  </td>
+    <td> <img src="{{ dado.link_img }}" alt=""> </td>
     <td>{{ dado.name }}  </td>
     <td>R${{ dado.price | intcomma}}  </td>
     <td>{{ dado.site }}  </td>
-    <td>{{ dado.quote_date }}  </td>
+    <td>{{ dado.quote_date | date:"D/M/Y" }}  </td>
     {% endfor %}
 </table>
-
+</div>
 
 {% endblock %}
